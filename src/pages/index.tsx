@@ -1,21 +1,23 @@
-import { Heading, Tag, Text } from '../components';
+import { useState } from 'react';
+import { Button } from '../components';
 
 const Index = () => {
+	const [is, setIs] = useState(false);
+
 	return (
-		<div>
-			<Heading tag='h3'>Hello World!</Heading>
-			<Text size='l'>Text Component</Text>
-			<Tag size='m' color='red'>
-				Red
-			</Tag>
-
-			<Tag size='m' color='green'>
-				Green
-			</Tag>
-
-			<Tag size='m' color='primary'>
-				Primary
-			</Tag>
+		<div style={{ padding: '50px' }}>
+			<Button appearance='primary' arrow='down'>
+				My Button
+			</Button>
+			<Button appearance='primary' arrow='right'>
+				My Button
+			</Button>
+			<Button appearance='ghost' arrow='down'>
+				My Button
+			</Button>
+			<Button appearance='ghost' arrow={is ? 'right' : 'down'} onClick={() => setIs(prev => !prev)}>
+				My Button
+			</Button>
 		</div>
 	);
 };
