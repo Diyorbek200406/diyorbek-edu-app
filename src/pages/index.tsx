@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button } from '../components';
+import { Button, Input, TextArea } from '../components';
 
 const Index = () => {
 	const [is, setIs] = useState(false);
@@ -18,6 +18,10 @@ const Index = () => {
 			<Button appearance='ghost' arrow={is ? 'right' : 'down'} onClick={() => setIs(prev => !prev)}>
 				My Button
 			</Button>
+
+			<Input placeholder='Enter' />
+
+			<TextArea placeholder='Message' />
 		</div>
 	);
 };
