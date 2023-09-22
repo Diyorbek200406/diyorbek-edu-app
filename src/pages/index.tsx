@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Button, Input, TextArea } from '../components';
+import { Button, Input, Rating, TextArea } from '../components';
 
 const Index = () => {
 	const [is, setIs] = useState(false);
+	const [rating, setRating] = useState<number>(4);
 
 	return (
 		<div style={{ padding: '50px' }}>
@@ -22,6 +23,8 @@ const Index = () => {
 			<Input placeholder='Enter' />
 
 			<TextArea placeholder='Message' />
+
+			<Rating rating={rating} setRating={setRating} isEditabled={true} />
 		</div>
 	);
 };
