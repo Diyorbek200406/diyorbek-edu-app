@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Rating, TextArea } from '../components';
+import { Button, Card, Input, Rating, TextArea } from '../components';
 
 const Index = () => {
 	const [is, setIs] = useState(false);
@@ -25,6 +25,14 @@ const Index = () => {
 			<TextArea placeholder='Message' />
 
 			<Rating rating={rating} setRating={setRating} isEditabled={true} />
+			<Card color='white'>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo
+				laboriosam!
+			</Card>
+			<Card color='primary'>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo
+				laboriosam!
+			</Card>
 		</div>
 	);
 };
