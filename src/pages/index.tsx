@@ -3,8 +3,9 @@ import { Button, Card, Input, Rating, TextArea } from '../components';
 import { GetServerSideProps } from 'next';
 import axios from 'axios';
 import { withLayout } from '../layout/layout';
+import { MenuItem } from '../interfaces/menu.interface';
 
-const Index = () => {
+const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
 	const [is, setIs] = useState(false);
 	const [rating, setRating] = useState<number>(4);
 
@@ -29,21 +30,30 @@ const Index = () => {
 
 			<Rating rating={rating} setRating={setRating} isEditabled={true} />
 			<Card color='white'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo
-				laboriosam!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo laboriosam!
 			</Card>
 			<Card color='primary'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo
-				laboriosam!
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo laboriosam!
 			</Card>
+			<ul>
+				{menu.map((e, idx) => (
+					<li key={idx}>{e._id.secondCategory}</li>
+				))}
+			</ul>
 		</>
 	);
 };
 export default withLayout(Index);
 
-export const getServerSideProps: GetServerSideProps = async () => {
-	const { data } = await axios.post(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, { firstCategory: 1 });
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, { firstCategory });
 	return {
-		props: { data },
+		props: { firstCategory, menu },
 	};
 };
+
+interface HomeProps extends Record<string, unknown> {
+	firstCategory: number;
+	menu: MenuItem[];
+}
