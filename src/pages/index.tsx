@@ -35,11 +35,6 @@ const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
 			<Card color='primary'>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque tenetur nisi pariatur iusto amet voluptatum dignissimos architecto repellendus quo laboriosam!
 			</Card>
-			<ul>
-				{menu.map((e, idx) => (
-					<li key={idx}>{e._id.secondCategory}</li>
-				))}
-			</ul>
 		</>
 	);
 };

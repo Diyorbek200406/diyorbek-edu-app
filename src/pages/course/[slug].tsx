@@ -6,7 +6,11 @@ import { PageModel } from '../../interfaces/page.interface';
 import { ProductModel } from '../../interfaces/product.interface';
 
 const Index = ({ menu, page, products }: PageProps) => {
-	return <div>Index</div>;
+	return (
+		<div>
+			{products.length} {menu.length}
+		</div>
+	);
 };
 
 export default withLayout(Index);

@@ -25,4 +25,3 @@ export interface PageModel {
 	hh: HhData;
 	advantages: AdvantageData[];
 }
-
