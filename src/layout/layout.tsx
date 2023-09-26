@@ -22,11 +22,11 @@ export default Layout;
 export const withLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
 	return function withLayoutComponent(props: T): JSX.Element {
 		return (
-			<Layout>
-				<AppContextProvider menu={props.menu} firstCategory={props.firstCategory} setMenu={props.setMenu}>
+			<AppContextProvider menu={props.menu} firstCategory={props.firstCategory} setMenu={props.setMenu}>
+				<Layout>
 					<Component {...props} />
-				</AppContextProvider>
-			</Layout>
+				</Layout>
+			</AppContextProvider>
 		);
 	};
 };
