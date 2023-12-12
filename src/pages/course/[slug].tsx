@@ -6,11 +6,7 @@ import { PageModel } from "../../interfaces/page.interface";
 import { ProductModel } from "../../interfaces/product.interface";
 
 const Index = ({ menu, page, products }: PageProps) => {
-  return (
-    <div>
-      {products.length} {menu.length}
-    </div>
-  );
+  return <div>{products.length}</div>;
 };
 
 export default withLayout(Index);
@@ -25,9 +21,13 @@ export const getServerSideProps: GetServerSideProps<PageProps> = async ({ query 
 
   const { data: menu } = await axios.post<MenuItem[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find`, { firstCategory });
   const { data: page } = await axios.get<PageModel[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/page-find/${slug}`);
-  const { data: products } = await axios.post<ProductModel[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/product-find`, { category: slug });
+  const { data: products } = await axios.post<ProductModel[]>(`${process.env.NEXT_PUBLIC_DOMAIN}/api/product-find`, {
+    category: slug,
+  });
 
-  return { props: { menu, page, products } };
+  return {
+    props: { menu, page, products },
+  };
 };
 
 interface PageProps extends Record<string, unknown> {

@@ -7,11 +7,12 @@ import { MenuItem } from "../interfaces/menu.interface";
 
 const Index = ({ firstCategory, menu }: HomeProps): JSX.Element => {
   const [is, setIs] = useState(false);
+
   const [rating, setRating] = useState<number>(4);
 
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Hello </h1>
     </>
   );
 };

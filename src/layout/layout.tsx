@@ -6,7 +6,7 @@ import Sidebar from "./sidebar/sidebar";
 import styles from "./layout.module.css";
 import { AppContextProvider, IAppContext } from "../context/app.context";
 
-const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.wrapper}>
       <Header className={styles.header} />
